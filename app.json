@@ -1,0 +1,32 @@
+{
+  "expo": {
+    "name": "Defuse TH",
+    "slug": "defuse-th",
+    "version": "1.0.0",
+    "scheme": "myapp",
+    "android": {
+      "package": "com.defuseth.app",
+      "intentFilters": [
+        {
+          "action": "VIEW",
+          "autoVerify": true,
+          "data": [
+            {
+              "scheme": "myapp",
+              "host": "auth"
+            }
+          ],
+          "category": [
+            "BROWSABLE",
+            "DEFAULT"
+          ]
+        }
+      ]
+    },
+    "extra": {
+      "eas": {
+        "projectId": "532e1738-3b8c-4484-88c9-08440542898e"
+      }
+    }
+  }
+}
