@@ -75,27 +75,34 @@ export default function LoginScreen({ navigation }) {
   };
 
   // ── Steam Login ─────────────────────────────────────
-  const handleSteamLogin = async () => {
-    setLoading(true);
-    try {
-      // เลือก redirect URI ตาม environment
-      const redirectUri = isExpoGo
-        ? AuthSession.makeRedirectUri({ useProxy: true }) // ✅ ไม่ต้อง build
-        : "myapp://auth/callback"; // ✅ build แล้ว
+const handleSteamLogin = async () => {
+  console.log("🔥 handleSteamLogin called");
+  setLoading(true);
+  try {
+    const redirectUri = isExpoGo
+      ? AuthSession.makeRedirectUri({ useProxy: true })
+      : "myapp://auth/callback";
 
-      const result = await WebBrowser.openAuthSessionAsync(
-        `${BACKEND_URL}/auth/steam?redirect=${encodeURIComponent(redirectUri)}`,
-        redirectUri,
-      );
+    console.log("📌 redirectUri:", redirectUri); // ← เพิ่ม
+    console.log("📌 isExpoGo:", isExpoGo);       // ← เพิ่ม
 
-      if (result.type === "cancel" || result.type === "dismiss") {
-        setLoading(false);
-      }
-    } catch (err) {
-      console.error("Steam login error:", err);
+    const result = await WebBrowser.openAuthSessionAsync(
+      `${BACKEND_URL}/auth/steam?redirect=${encodeURIComponent(redirectUri)}`,
+      redirectUri,
+    );
+
+    console.log("✅ result:", JSON.stringify(result)); // ← เพิ่ม
+
+    if (result.type === "success" && result.url) {
+      await handleDeepLink({ url: result.url });
+    } else {
       setLoading(false);
     }
-  };
+  } catch (err) {
+    console.error("Steam login error:", err);
+    setLoading(false);
+  }
+};
 
   // ── Admin Login ─────────────────────────────────────
   const handleAdminLogin = async () => {

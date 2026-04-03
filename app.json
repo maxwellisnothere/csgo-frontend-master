@@ -23,9 +23,10 @@
         }
       ]
     },
+    "owner": "myapp12345",
     "extra": {
       "eas": {
-        "projectId": "532e1738-3b8c-4484-88c9-08440542898e"
+        "projectId": "1c913bc0-0f6b-43ad-9649-7c7fae5f3621"
       }
     }
   }
