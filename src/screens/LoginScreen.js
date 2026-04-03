@@ -104,7 +104,7 @@ export default function LoginScreen({ navigation }) {
   // ── Steam Login ─────────────────────────────────────
   const handleSteamLogin = async () => {
     console.log("🔥 handleSteamLogin called");
-    isHandlingAuth.current = false; // ✅ รีเซ็ตก่อนเปิด browser ทุกครั้ง
+    isHandlingAuth.current = false; // ✅ รีเซ็ตก่อนเปิด browser ทุกครั้งครับผม
     setLoading(true);
     try {
       const redirectUri = "myapp://auth/callback";
