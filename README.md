@@ -1,6 +1,25 @@
 # 📱 Defuse TH — Frontend (csgoApp)
 > React Native + Expo app สำหรับ CS2 Skins Marketplace สำหรับคนไทย
 > Backend Repo: [defuse-th-backend](https://github.com/)
+
+
+---
+##  Build APK BY EXPO
+eas login
+    myapp.pp12345@gmail.com / Myapp@12345
+eas init in => app.json
+    ผูกกับ Account  "owner": "myapp12345",
+    "extra": {
+      "eas": {
+        "projectId": "1c913bc0-0f6b-43ad-9649-7c7fae5f3621"
+      }
+eas build -p android --profile preview = Build
+
+eas logout = change account
+
+---
+
+
 ---
 ## 🛠️ Tech Stack
 
@@ -17,7 +36,7 @@
 ## ⚙️ ค่าคงที่สำคัญ
 
 ```env
-BACKEND_URL  = https://defuse-th-backend.onrender.com
+BACKEND_URL  = https://defuse-th-backend-main.onrender.com
 APP_SCHEME   = myapp://auth/callback
 ---
 
